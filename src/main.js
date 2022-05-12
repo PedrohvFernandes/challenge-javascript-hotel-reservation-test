@@ -1,5 +1,6 @@
-function getCheapestHotel (input) { //DO NOT change the function's name.
-    return "Cheapest hotel name"
+const hotels = require("./hoteis");
+
+function getCheapestHotel(input) {
 }
 
-exports.getCheapestHotel = getCheapestHotel
+exports.getCheapestHotel = getCheapestHotel;

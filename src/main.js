@@ -1,44 +1,4 @@
-// Os hoteis:
-
-const HOTEIS = [
-  {
-    name: "Lakewood",
-    class: 3,
-    naSemana: {
-      regular: 110,
-      reward: 80,
-    },
-    noFinalSemana: {
-      regular: 90,
-      reward: 80,
-    },
-  },
-  {
-    name: "Bridgewood",
-    class: 4,
-    naSemana: {
-      regular: 160,
-      reward: 110,
-    },
-    noFinalSemana: {
-      regular: 60,
-      reward: 50,
-    },
-  },
-  {
-    name: "Ridgewood",
-    class: 5,
-    naSemana: {
-      regular: 220,
-      reward: 100,
-    },
-    noFinalSemana: {
-      regular: 150,
-      reward: 40,
-    },
-  },
-];
-
+const HOTEIS = require("./dados/hoteis.json");
 function getCheapestHotel(input) {
   //clientes: separador -> :   não pego o restante depois do separador -> [0]
   const clientes = input.split(":")[0];

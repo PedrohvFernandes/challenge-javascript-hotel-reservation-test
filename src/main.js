@@ -30,7 +30,7 @@ const HOTEIS = [
     class: 5,
     naSemana: {
       regular: 220,
-      Reward: 100,
+      reward: 100,
     },
     noFinalSemana: {
       regular: 150,
@@ -46,12 +46,8 @@ function getCheapestHotel(input) {
   let custoHoteis = [0, 0, 0];
 
   let datas;
-  for (i = 0; i < 3; i++) {
+  for (i = 0; i <= 2; i++) {
     // Pegando os meses que vem do test
-    // const datas = input.split(":")[1].split(",")[i].split("(")[1].split(")")[0];
-    // const datas1 = input.split(":")[1].split(",")[0].split("(")[1].split(")")[0];
-    // const datas2 = input.split(":")[1].split(",")[1].split("(")[1].split(")")[0];
-    // const datas3 = input.split(":")[1].split(",")[2].split("(")[1].split(")")[0];
     datas = input.split(":")[1].split(",")[i].split("(")[1].split(")")[0];
     console.log(datas);
     //Primeiro descobrir quem é o cliente
@@ -72,7 +68,7 @@ function getCheapestHotel(input) {
         custoHoteis[1] += HOTEIS[1].noFinalSemana.regular;
         custoHoteis[2] += HOTEIS[2].noFinalSemana.regular;
       }
-    } else if (clientes === "Rewards") {
+    } else {
       if (
         datas === "mon" ||
         datas === "tues" ||
@@ -89,8 +85,9 @@ function getCheapestHotel(input) {
         custoHoteis[2] += HOTEIS[2].noFinalSemana.reward;
       }
     }
+    console.log(custoHoteis);
   }
-
+  console.log(custoHoteis[0]);
   // Comparo os preços e a classificação dos hoteis
   if (custoHoteis[0] < custoHoteis[1] && custoHoteis[0] < custoHoteis[2]) {
     return HOTEIS[0].name;

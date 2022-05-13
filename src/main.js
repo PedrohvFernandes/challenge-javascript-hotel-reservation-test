@@ -1,4 +1,7 @@
 const HOTEIS = require("./dados/hoteis.json");
+const naSemana = ["mon", "tues", "wed", "thur", "fri"];
+const noFinalSemana = ["sat", "sun"];
+
 function getCheapestHotel(input) {
   //clientes: separador -> :   não pego o restante depois do separador -> [0]
   const clientes = input.split(":")[0];
@@ -13,33 +16,21 @@ function getCheapestHotel(input) {
     //Primeiro descobrir quem é o cliente
     if (clientes === "Regular") {
       // Depois descobrir se é final de semana ou não
-      if (
-        datas === "mon" ||
-        datas === "tues" ||
-        datas === "wed" ||
-        datas === "thur" ||
-        datas === "fri"
-      ) {
+      if (naSemana.includes(datas)) {
         custoHoteis[0] += HOTEIS[0].naSemana.regular;
         custoHoteis[1] += HOTEIS[1].naSemana.regular;
         custoHoteis[2] += HOTEIS[2].naSemana.regular;
-      } else if (datas === "sat" || datas === "sun") {
+      } else if (noFinalSemana.includes(datas)) {
         custoHoteis[0] += HOTEIS[0].noFinalSemana.regular;
         custoHoteis[1] += HOTEIS[1].noFinalSemana.regular;
         custoHoteis[2] += HOTEIS[2].noFinalSemana.regular;
       }
     } else {
-      if (
-        datas === "mon" ||
-        datas === "tues" ||
-        datas === "wed" ||
-        datas === "thur" ||
-        datas === "fri"
-      ) {
+      if (naSemana.includes(datas)) {
         custoHoteis[0] += HOTEIS[0].naSemana.reward;
         custoHoteis[1] += HOTEIS[1].naSemana.reward;
         custoHoteis[2] += HOTEIS[2].naSemana.reward;
-      } else if (datas === "sat" || datas === "sun") {
+      } else if (noFinalSemana.includes(datas)) {
         custoHoteis[0] += HOTEIS[0].noFinalSemana.reward;
         custoHoteis[1] += HOTEIS[1].noFinalSemana.reward;
         custoHoteis[2] += HOTEIS[2].noFinalSemana.reward;

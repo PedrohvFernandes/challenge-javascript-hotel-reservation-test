@@ -85,9 +85,11 @@ function getCheapestHotel(input) {
         custoHoteis[2] += HOTEIS[2].noFinalSemana.reward;
       }
     }
-    console.log(custoHoteis);
   }
+  console.log(custoHoteis);
   console.log(custoHoteis[0]);
+  console.log(custoHoteis[1]);
+  console.log(custoHoteis[2]);
   // Comparo os preços e a classificação dos hoteis
   if (custoHoteis[0] < custoHoteis[1] && custoHoteis[0] < custoHoteis[2]) {
     return HOTEIS[0].name;
@@ -107,6 +109,7 @@ function getCheapestHotel(input) {
     return HOTEIS[1].name;
   }
 
+  // Quando ele testa essa parte aqui o custo do hotel na posição 2 é igual ao do hotel na posição 0
   if (custoHoteis[2] < custoHoteis[1] && custoHoteis[2] < custoHoteis[0]) {
     return HOTEIS[2].name;
   } else if (
